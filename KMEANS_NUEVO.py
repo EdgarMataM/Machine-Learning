@@ -10,7 +10,7 @@ import numpy as np
 import math
 from sklearn.datasets import make_blobs
 
-#Genera los 300 puntos y almacena en X; en Y almacena las etiquetas de cada punto.
+#Genera 300 puntos y almacena en X; en Y almacena las etiquetas de cada punto.
 X,Y = make_blobs(n_samples=300,centers=3,cluster_std=1,random_state=3)
 #Se toman tres centros aleatorios.
 centros = np.array([X[0],X[4],X[10]])

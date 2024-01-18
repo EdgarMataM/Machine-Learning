@@ -25,8 +25,8 @@ with open('random.csv','r') as file:
     reader = csv.reader(file, delimiter = ',')
     for row in reader:
         data.append(row)
-    for k in range(8): 
-        for i in range(4):
+    for k in range(len(data)): 
+        for i in range(len(data[0])):
             aux.append(float(data[k][i]))
         dataf.append(aux)
         aux = []

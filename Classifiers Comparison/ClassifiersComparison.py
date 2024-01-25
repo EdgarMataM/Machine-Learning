@@ -37,7 +37,7 @@ i.e., each element of the table corresponds to each element of the decision
 boundaries table.
 """
 
-#Importación de librerías.
+#Libraries to use.
 import matplotlib.pyplot as plt
 import numpy as np
 import math
@@ -49,7 +49,7 @@ from matplotlib.colors import ListedColormap
 from sklearn.model_selection import cross_val_score
 from sklearn.model_selection import KFold
 from sklearn.linear_model import Perceptron
-from sklearn import metrics #Método para crear la matriz de confusion.
+from sklearn import metrics #Method for creating the confusion matrix.
 import pandas as pd
 from sklearn.metrics import confusion_matrix
 from sklearn.metrics import roc_auc_score
@@ -57,22 +57,23 @@ from sklearn.metrics import mean_squared_error
 import seaborn as sns; sns.set()
 
 """"
-Genera el dataset del tipo XOR. La distribución se hizo utilizando el código 
-proporcionado en clase de la libreta:
+Genterating the type XOR dataset. The distribution was made using the code
+provided in class from the notebook:
 https://colab.research.google.com/drive/1i9CEIJKX4pp3ib4kBMMROI4ugVSFPtCy#scrollTo=WpRD1T-_2JUp
 """
 
-#Se inicializa una semilla para que la aleatoriedad sea sólo una vez.
+#Initializing the seed to set a one-time randomness.
 np.random.seed(11)
-#### Se crea el dataset para el tipo XOR.
 
-#Media y desv. estándar. para primera clase.
+#Creating the type XOR dataset.
+
+#Mean and standard deviation for first class.
 mu_x1, sigma_x1 = 0, 0.1
 
-#Constantes para diferir de primera clase.
+#Constants which will differentiate first class.
 x1_mu_diff, x2_mu_diff, x3_mu_diff, x4_mu_diff = 0, 1, 0, 1
 
-# Primera distribución.
+#First distribution.
 d1 = pd.DataFrame({'x1': np.random.normal(mu_x1, sigma_x1, 1000) + 1,
                    'x2': np.random.normal(mu_x1, sigma_x1, 1000) + 1,
                    'type': 0})
@@ -89,7 +90,7 @@ d4 = pd.DataFrame({'x1': np.random.normal(mu_x1, sigma_x1, 1000) - 1,
                    'x2': np.random.normal(mu_x1, sigma_x1, 1000) + 1,
                    'type': 1})
 
-#Convierte a arreglos de numpy los dataframes de pandas.
+#Converting numpy arrays into pandas dataframe.
 d1 = d1.to_numpy()
 d2 = d2.to_numpy()
 d3 = d3.to_numpy()
